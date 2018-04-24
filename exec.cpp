@@ -12,18 +12,18 @@ using namespace std;
 
 string exec(const char*);
 
-
-int main()
+/*int main()
 {
-    string[] input;
+    string input;
     bool cont = true;
     while(cont){
-        cin >> input;
+        getline(cin,input);
         if(input == "exit")
             cont = false;
-        cout << exec(input.c_str()) << endl;
+        else
+            cout << exec(input.c_str()) << endl;
     }
-}
+}*/
 
 
 
